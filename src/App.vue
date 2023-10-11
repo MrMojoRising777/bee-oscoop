@@ -1,18 +1,18 @@
 <template>
-  <Header/>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <LoginForm/>
+  <div>
+    <Header/>
+    <img alt="Vue logo" src="./assets/logo.png">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
-import LoginForm from './components/LoginForm.vue'
 
 export default {
   name: 'App',
   components: {
     Header,
-    LoginForm
   }
 }
 </script>

@@ -17,6 +17,7 @@
               </div>
 
               <button type="submit" class="btn btn-primary btn-block">Login</button>
+              <button>Register</button>
             </form>
           </div>
         </div>
