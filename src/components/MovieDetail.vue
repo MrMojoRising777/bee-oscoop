@@ -50,7 +50,7 @@ export default {
         }
 
         const data = await response.json();
-        this.movie = data; // Directly access the object data
+        this.movie = data;
         console.log(this.movie);
       } catch (error) {
         console.error('Fetch error:', error);
@@ -60,6 +60,10 @@ export default {
 };
 </script>
 
-<style scoped>
-
+<style>
+body {
+  background-image: url('https://www.pixel-creation.com/wp-content/uploads/download-movie-theater-wallpapers-to-your-cell-phone-movie-hd.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 </style>
