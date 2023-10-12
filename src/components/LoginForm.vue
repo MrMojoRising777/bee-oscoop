@@ -17,7 +17,9 @@
               </div>
 
               <button type="submit" class="btn btn-primary btn-block">Login</button>
-              <button>Register</button>
+              <router-link to="/register">
+                <button>Register</button>
+              </router-link>
             </form>
           </div>
         </div>

@@ -4,7 +4,9 @@ const routes = [
   // { path: '/', component: () => import('../views/Home.vue') },
   { path: '/movies', component: () => import('../components/Movies.vue') },
   { path: '/movie/:id', component: () => import('../components/MovieDetail.vue') },
+  { path: '/tickets', component: () => import('../components/Tickets.vue') },
   { path: '/login', component: () => import('../components/LoginForm.vue') },
+  { path: '/register', component: () => import('../components/RegistrationForm.vue') },
   // { path: '/profile', component: () => import('../views/Profile.vue') },
 ];
 

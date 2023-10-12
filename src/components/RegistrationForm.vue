@@ -46,11 +46,9 @@ export default {
       axios.post('http://localhost:8000/register', this.user)
         .then(response => {
           console.log('User registered:', response.data);
-          this.$toastr.s('Success message', 'Success');
         })
         .catch(error => {
           console.error('Registration failed:', error);
-          this.$toastr.e('Error message', 'Error');
         });
     },
   },

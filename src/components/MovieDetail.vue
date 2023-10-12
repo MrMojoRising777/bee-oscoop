@@ -1,17 +1,26 @@
 <template>
   <div class="container mt-4">
+    <h2>{{ movie.Title }}</h2>
     <div class="row">
       <div class="col-md-6">
         <img :src="movie.Poster" class="img-fluid" :alt="movie.Title">
+        <p><span>Rated: </span><span>{{ movie.Rated }}</span></p>
+        <p><span>Directed by: </span><span>{{ movie.Director }}</span></p>
+        <p><span>Starring: </span><span>{{ movie.Actors }}</span></p>
+        <p><span>Written by: </span><span>{{ movie.Writer }}</span></p>
       </div>
       <div class="col-md-6">
-        <h2>{{ movie.Title }}</h2>
-        <p><strong>Year:</strong> {{ movie.Year }}</p>
-        <p><strong>Genre:</strong> {{ movie.Genre }}</p>
-        <p><strong>Director:</strong> {{ movie.Director }}</p>
-        <p><strong>IMDB Rating:</strong> {{ movie.imdbRating }}</p>
-        <p><strong>Plot:</strong> {{ movie.Plot }}</p>
-        <a :href="movie.imdbID" target="_blank" class="btn btn-primary">IMDB Link</a>
+        <router-link to="/tickets">
+          <button class="btn btn-warning">Tickets</button>
+        </router-link>
+        <p><span>Released: </span><span>{{ movie.Released }}</span></p>
+        <p><span>Duration: </span><span>{{ movie.Runtime }}</span></p>
+        <p><span>Language: </span><span>{{ movie.Language }}</span></p>
+        <p><span>Genre: </span><span>{{ movie.Genre }}</span></p>
+        <p><span>IMDB Rating: </span><span>{{ movie.imdbRating }}</span></p>
+        <p><span>Awards won: </span><span>{{ movie.Awards }}</span></p>
+        <p><span>Plot: </span><span>{{ movie.Plot }}</span></p>
+        <a :href="'https://www.imdb.com/title/' + movie.imdbID" target="_blank" class="btn btn-primary mt-3">IMDB Link</a>
       </div>
     </div>
   </div>
