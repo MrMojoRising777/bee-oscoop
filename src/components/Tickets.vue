@@ -23,8 +23,8 @@
             :class="{
               'seat': true,
               'selected': seat.selected,
-              'unavailable': seat.is_available === 1,
-              'available': seat.is_available === 0,
+              'unavailable': seat.is_available === 0,
+              'available': seat.is_available === 1,
             }"
           >
             {{ seat.id }}
@@ -38,12 +38,15 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: "movieTickets",
   data() {
     return {
       selectedScreen: null,
       filteredSeats: [],
+      selectedSeats: [],
       seats: [],
       rows: [],
       screens: [],
@@ -96,11 +99,45 @@ export default {
       return this.filteredSeats.filter(seat => seat.row === row);
     },
     toggleSeatSelection(seat) {
-      if (seat.is_available === 0) {
+      if (seat.is_available === 1) {
         seat.selected = !seat.selected;
+
+        if (seat.selected) {
+          this.selectedSeats.push(seat);
+        } else {
+          const index = this.selectedSeats.findIndex(selectedSeat => selectedSeat.id === seat.id);
+          if (index !== -1) {
+            this.selectedSeats.splice(index, 1);
+          }
+        }
       }
     },
     bookSelectedSeats() {
+      if (this.selectedSeats.length === 0) {
+        alert("Please select seats before booking.");
+        return;
+      }
+
+      // Extract seat IDs from selectedSeats
+      const selectedSeatIds = this.selectedSeats.map(seat => seat.id);
+
+      selectedSeatIds.forEach(seat => {
+        // Create data object
+        const bookingData = {
+          seat_id: seat,
+          movie_name: "Test",
+        };
+
+        // POST seats
+        axios
+          .post('http://localhost:8000/booking', bookingData)
+          .then(response => {
+            console.log('Booking registered:', response.data);
+          })
+          .catch(error => {
+            console.error('Booking failed:', error);
+          });
+      })
     },
   },
 };
