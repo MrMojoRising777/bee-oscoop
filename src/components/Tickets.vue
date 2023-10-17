@@ -50,11 +50,17 @@ export default {
       seats: [],
       rows: [],
       screens: [],
+      API_URL: `http://www.omdbapi.com/?apikey=`,
+      API_KEY: '1f928ec1',
+      movie: []
     };
   },
   created() {
     this.fetchScreens();
     this.fetchSeats();
+
+    const imdbID = this.$route.params.imdbID;
+    this.fetchMovie(imdbID);
   },
   methods: {
     async fetchScreens() {
@@ -88,6 +94,22 @@ export default {
        } catch (error) {
         console.log('Fetch error:', error);
        }
+    },
+    async fetchMovie(id) {
+      const apiUrl = `${this.API_URL}${this.API_KEY}&i=${id}`;
+
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        this.movie = data;
+        console.log("MOVIE",this.movie);
+      } catch (error) {
+        console.error('Fetch error:', error);
+      }
     },
     loadSeatsByScreen() {
       this.filteredSeats = this.seats.filter(seat => seat.theater_id === this.selectedScreen);
@@ -125,7 +147,7 @@ export default {
         // Create data object
         const bookingData = {
           seat_id: seat,
-          movie_name: "Test",
+          movie_name: this.movie.Title,
         };
 
         // POST seats

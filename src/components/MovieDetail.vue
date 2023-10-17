@@ -10,7 +10,7 @@
         <p><span>Written by: </span><span>{{ movie.Writer }}</span></p>
       </div>
       <div class="col-md-6">
-        <router-link to="/tickets">
+        <router-link :to="'/tickets/' + movie.imdbID">
           <button class="btn btn-warning">Tickets</button>
         </router-link>
         <p><span>Released: </span><span>{{ movie.Released }}</span></p>
