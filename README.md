@@ -1,9 +1,11 @@
 # bee-oscoop
 
-🎭 **Overview**
+🎭 
+**Overview**
 This theater project seamlessly integrates with IMDb's extensive movie database, providing a user-friendly platform for movie enthusiasts to discover, explore, and book tickets for their favorite films.
 
-🎟️ **Key Features**
+🎟️ 
+**Key Features**
 - **IMDb Integration**: Access up-to-date movie information directly from IMDb, ensuring accurate and comprehensive movie listings.
 - **Movie Details**: Explore detailed movie information, including cast, plot summaries, ratings, and reviews.
 - **Ticket Booking**: Effortlessly book tickets for your chosen films, selecting your preferred showtimes and seats.
@@ -27,8 +29,6 @@ Whether you're a movie buff or just looking for a fun night out, our IMDbDB-inte
 
 📧 **Contact**
 Have questions or suggestions? Reach out to us at [contact@theaterproject.com](mailto:contact@theaterproject.com)
-
-[![Theater Project Logo](https://yourrepository.com/logo.png)](https://yourrepository.com)
 
 Discover, book, and experience movies like never before with our IMDbDB-integrated theater project! 🍿🎥🎬
 
